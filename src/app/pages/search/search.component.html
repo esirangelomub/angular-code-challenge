@@ -1,1 +1,41 @@
-chegemos
+<div class="container mx-auto py-4">
+  <form [formGroup]="form">
+    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+      <input type="text" nz-input placeholder="Login" formControlName="search"/>
+    </nz-input-group>
+    <ng-template #suffixButton>
+      <button nz-button nzType="primary" nzSize="large" nzSearch (click)="onSubmit()">Search</button>
+    </ng-template>
+  </form>
+</div>
+
+<div class="container mx-auto py-4">
+  <nz-table
+    #rowSelectionTable
+    nzShowPagination
+    [nzData]="listOfData"
+    [nzFrontPagination]="false"
+    [nzLoading]="loading"
+    [nzTotal]="total"
+    [nzPageSize]="pageSize"
+    [nzPageIndex]="pageIndex"
+    (nzQueryParams)="onQueryParamsChange($event)">
+    <thead>
+      <tr>
+        <th>Avatar</th>
+        <th>Login</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of listOfData">
+      <td>
+        <nz-avatar nzIcon="user"
+                   [nzSrc]="data.avatar_url"></nz-avatar>
+      </td>
+      <td>{{ data.login }}</td>
+      <td>{{ data.type }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>
