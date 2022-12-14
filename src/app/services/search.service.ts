@@ -18,13 +18,6 @@ export class SearchService {
     params = params.append('q', `${login}`);
     params = params.append('per_page', `${pageSize}`);
     params = params.append('page', `${pageIndex}`);
-    return this.http.get<any>(this.url, {params: params})
-      .pipe(catchError(() => of({
-        incomplete_results: false,
-        items: [],
-        total_count: 0
-      })));
-
-
+    return this.http.get<any>(this.url, {params: params});
   }
 }

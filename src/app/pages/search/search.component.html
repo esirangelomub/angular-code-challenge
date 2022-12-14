@@ -9,10 +9,19 @@
   </form>
 </div>
 
+<nz-alert
+  *ngIf="hasError"
+  nzType="error"
+  nzCloseable
+  [nzMessage]="errorTitle"
+  [nzDescription]="errorDescription"
+  (nzOnClose)="closeError()"></nz-alert>
+
 <div class="container mx-auto py-4">
   <nz-table
     #rowSelectionTable
     nzShowPagination
+    nzSize="middle"
     [nzData]="listOfData"
     [nzFrontPagination]="false"
     [nzLoading]="loading"
@@ -31,6 +40,8 @@
     <tr *ngFor="let data of listOfData">
       <td>
         <nz-avatar nzIcon="user"
+                   [nzShape]="'square'"
+                   [nzSize]="32"
                    [nzSrc]="data.avatar_url"></nz-avatar>
       </td>
       <td>{{ data.login }}</td>

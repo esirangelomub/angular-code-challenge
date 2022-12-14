@@ -24,6 +24,10 @@ export class SearchComponent implements OnInit {
   pageSize = 9;
   pageIndex = 1;
 
+  hasError = false;
+  errorTitle = 'Error!';
+  errorDescription = ''
+
   constructor(private service: SearchService) {
   }
 
@@ -65,9 +69,18 @@ export class SearchComponent implements OnInit {
         this.loading = false;
       },
       error => {
+        this.hasError = true;
         this.loading = false;
+        this.listOfData = [];
+        this.errorDescription = error?.error?.message ?? 'Internal server error!';
       });
 
+  }
+
+  closeError() {
+    this.hasError = false;
+    this.pageIndex = 1;
+    this.errorTitle = this.errorDescription = '';
   }
 
 }
