@@ -1,6 +1,10 @@
 # Scalio - Ng/Tailwind/Ng-Zorro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+This project is the result of code testing for a Senior Front end Developer at Scalio. [Here you find the detailed description of the test](https://www.notion.so/Web-Angular-ReactJS-Test-Assignment-308d84eaa51c4f22b1f65d60efcd7186).
+
+## DEMO
+
+
 
 ## Install
 
