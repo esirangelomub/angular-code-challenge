@@ -1,7 +1,7 @@
 <div class="container mx-auto py-4">
   <form [formGroup]="form">
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
-      <input type="text" nz-input placeholder="Login" formControlName="search"/>
+      <input id="searchInput" type="text" nz-input placeholder="Login" formControlName="search"/>
     </nz-input-group>
     <ng-template #suffixButton>
       <button nz-button nzType="primary" nzSize="large" nzSearch (click)="onSubmit()">Search</button>
@@ -19,6 +19,7 @@
 
 <div class="container mx-auto py-4">
   <nz-table
+    id="listTable"
     #rowSelectionTable
     nzShowPagination
     nzSize="middle"
@@ -28,6 +29,7 @@
     [nzTotal]="total"
     [nzPageSize]="pageSize"
     [nzPageIndex]="pageIndex"
+    [nzScroll]="{ y: '58vh' }"
     (nzQueryParams)="onQueryParamsChange($event)">
     <thead>
       <tr>

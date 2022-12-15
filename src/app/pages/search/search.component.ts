@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   loading = false;
   listOfData: Data[] = [];
   total = 0;
-  pageSize = 9;
+  pageSize = 39;
   pageIndex = 1;
 
   hasError = false;
